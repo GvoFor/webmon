@@ -1,0 +1,14 @@
+@use '/src/assets/scss/variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 16px;
+  gap: 16px;
+  background-color: variables.$color-primary-dark;
+}
+
+.logo-image {
+  display: block;
+}
