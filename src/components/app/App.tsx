@@ -1,15 +1,15 @@
-import { Footer, Header } from '../components';
+import { Footer, Header, Outlet } from '../components';
 import styles from './styles.module.scss';
 
 const App = (): React.JSX.Element => {
   return (
-    <>
+    <div className={styles['page-layout']}>
       <Header />
-      <p className={styles['hello']}>
-        Hello <span className={styles['world']}>World</span>
-      </p>
+      <main className={styles['main-wrapper']}>
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
