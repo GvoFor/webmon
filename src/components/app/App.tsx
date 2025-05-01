@@ -1,7 +1,7 @@
 import { Footer, Header } from '../components';
 import styles from './styles.module.scss';
 
-const App: React.FC = () => {
+const App = (): React.JSX.Element => {
   return (
     <>
       <Header />
@@ -13,4 +13,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export { App };

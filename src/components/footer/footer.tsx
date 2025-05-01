@@ -1,16 +1,17 @@
-import { Icon } from '../components';
+import { AppRoutes } from '../../enums/enums';
+import { Icon, NavLink } from '../components';
 import styles from './styles.module.scss';
 
 const Footer = (): React.JSX.Element => {
   return (
     <footer className={styles['footer']}>
-      <a href="#">
+      <NavLink to={AppRoutes.ROOT}>
         <img
           className={styles['logo-image']}
           src="/src/assets/images/logo.svg"
           alt="Webmon logo"
         />
-      </a>
+      </NavLink>
       <nav>
         <ul className={styles['socials-list']}>
           <li className={styles['socials-item']}>
@@ -25,9 +26,9 @@ const Footer = (): React.JSX.Element => {
           </li>
         </ul>
       </nav>
-      <a className={styles['copyright']} href="#">
+      <NavLink className={styles['copyright']} to={AppRoutes.ROOT}>
         &copy; 2025 All rights reserved
-      </a>
+      </NavLink>
     </footer>
   );
 };

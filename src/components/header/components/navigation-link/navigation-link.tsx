@@ -1,3 +1,4 @@
+import { NavLink } from '../../../../components/components';
 import { buildClasses } from '../../../../helpers/helpers';
 
 import styles from './styles.module.scss';
@@ -15,15 +16,21 @@ const NavigationLink = ({
   href,
   text,
 }: Properties): React.JSX.Element => {
-  const className = buildClasses(styles['link'], {
-    [styles['v-text']]: variant === 'text',
-    [styles['v-button']]: variant === 'button',
-  });
-
   return (
-    <a className={className} href={href}>
+    <NavLink
+      className={({ isActive }) =>
+        buildClasses(
+          buildClasses(styles['link'], {
+            [styles['v-text']]: variant === 'text',
+            [styles['v-button']]: variant === 'button',
+            [styles['active']]: isActive,
+          }),
+        )
+      }
+      to={href}
+    >
       {text}
-    </a>
+    </NavLink>
   );
 };
 
