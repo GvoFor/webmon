@@ -1,0 +1,56 @@
+@use '/src/assets/scss/variables.scss';
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: Kadwa, serif;
+  font-size: 32px;
+  flex: 1;
+}
+
+.steps {
+  counter-reset: num;
+  display: flex;
+  gap: 16px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 48px;
+  padding: 8px 16px;
+
+  &::before {
+    content: counter(num);
+    counter-increment: num;
+    display: inline-block;
+    font-size: 240px;
+    line-height: 1;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 4px;
+  }
+}
+
+.accent {
+  color: variables.$color-primary-brand;
+}
+
+.showcase-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: variables.$color-primary-brand;
+  color: variables.$color-primary-dark;
+  font-size: 40px;
+  border-radius: 16px;
+  aspect-ratio: 1.875;
+  width: 50%;
+}

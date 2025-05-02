@@ -21,7 +21,8 @@
     transition: width 0.25s ease;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
     &::after {
       width: 110%;
     }

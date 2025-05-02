@@ -1,8 +1,15 @@
-.hello {
-  font-size: 32px;
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1240px;
+  min-height: 100vh;
+  margin: auto;
+}
 
-  .world {
-    color: red;
-    font-size: 1.5em;
-  }
+.main-wrapper {
+  flex: 1;
 }
