@@ -1,1 +1,1 @@
-export { AppRoutes } from './app-routes.enum';
+export { AppRoutes } from './app-routes.enum.js';

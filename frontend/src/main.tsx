@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { App, RouterProvider } from './components/components';
-import { AppRoutes } from './enums/enums';
-import { Home } from './pages/pages';
+import { App, RouterProvider } from './components/components.js';
+import { AppRoutes } from './enums/enums.js';
+import { Home } from './pages/pages.js';
 
 import './assets/scss/main.scss';
 

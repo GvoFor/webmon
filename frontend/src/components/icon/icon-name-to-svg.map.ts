@@ -1,4 +1,4 @@
-import { IconName } from './types';
+import { IconName } from './types.js';
 import GithubIcon from '/src/assets/images/icons/github.svg?react';
 import LinkedinIcon from '/src/assets/images/icons/linkedin.svg?react';
 

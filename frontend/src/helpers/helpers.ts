@@ -1,1 +1,1 @@
-export { buildClasses } from './buildClasses.helper';
+export { buildClasses } from './buildClasses.helper.js';

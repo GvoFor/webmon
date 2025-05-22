@@ -1,5 +1,5 @@
-import { NavLink } from '../../../../components/components';
-import { buildClasses } from '../../../../helpers/helpers';
+import { NavLink } from '~/components/components.js';
+import { buildClasses } from '~/helpers/helpers.js';
 
 import styles from './styles.module.scss';
 
@@ -21,9 +21,9 @@ const NavigationLink = ({
       className={({ isActive }) =>
         buildClasses(
           buildClasses(styles['link'], {
-            [styles['v-text']]: variant === 'text',
-            [styles['v-button']]: variant === 'button',
-            [styles['active']]: isActive,
+            [styles['v-text'] as string]: variant === 'text',
+            [styles['v-button'] as string]: variant === 'button',
+            [styles['active'] as string]: isActive,
           }),
         )
       }

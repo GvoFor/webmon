@@ -1,5 +1,5 @@
-import { iconNameToSvgMap } from './icon-name-to-svg.map';
-import { IconName } from './types';
+import { iconNameToSvgMap } from './icon-name-to-svg.map.js';
+import { IconName } from './types.js';
 
 import styles from './styles.module.scss';
 
