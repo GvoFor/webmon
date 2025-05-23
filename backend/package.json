@@ -9,7 +9,14 @@
     "start": "node ./build/index.js"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
     "tsc-alias": "^1.8.16",
     "tsx": "4.19.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
   }
 }
