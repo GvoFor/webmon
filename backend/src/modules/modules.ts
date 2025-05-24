@@ -1,1 +1,2 @@
-export { config } from './config/config.js';
+export { authRouter } from './auth/auth.js';
+export { encryptionService } from './encryption/encryption.js';
