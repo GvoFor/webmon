@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
-    "start": "node ./build/index.js",
+    "start": "node ./build/src/index.js",
     "migrate:dev": "node --import tsx ./node_modules/knex/bin/cli.js migrate:latest",
     "migrate:dev:make": "node --import tsx ./node_modules/knex/bin/cli.js migrate:make -x ts",
     "migrate:dev:down": "node --import tsx ./node_modules/knex/bin/cli.js migrate:down",
