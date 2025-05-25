@@ -1,30 +1,40 @@
 import { NavLink } from '~/components/components.js';
 import { AppRoutes } from '~/enums/enums.js';
-import { NavigationBar, NavigationLink } from './components/components.js';
+import {
+  NavigationBar,
+  NavigationLink,
+  Profile,
+} from './components/components.js';
 import styles from './styles.module.scss';
 import logo from '~/assets/images/logo.svg';
+import { useIsAuthorized, useLocation } from '~/hooks/hooks.js';
 
-type Properties = {
-  withNav?: boolean;
-};
+const Header = (): React.JSX.Element => {
+  const isAuthorized = useIsAuthorized();
+  const { pathname } = useLocation();
 
-const Header = ({ withNav = true }: Properties): React.JSX.Element => {
+  const withNav = !(
+    pathname === AppRoutes.SIGN_IN || pathname === AppRoutes.SIGN_UP
+  );
+
   return (
     <header className={styles['header']}>
       <NavLink to={AppRoutes.ROOT}>
         <img className={styles['logo-image']} src={logo} alt="Webmon logo" />
       </NavLink>
-      {withNav ? (
+      {withNav && (
         <NavigationBar>
           <NavigationLink href={AppRoutes.ROOT} text="Home" />
-          <NavigationLink
-            href={AppRoutes.SIGN_IN}
-            text="Sign In"
-            variant="button"
-          />
+          {isAuthorized ? (
+            <Profile />
+          ) : (
+            <NavigationLink
+              href={AppRoutes.SIGN_IN}
+              text="Sign In"
+              variant="button"
+            />
+          )}
         </NavigationBar>
-      ) : (
-        <></>
       )}
     </header>
   );

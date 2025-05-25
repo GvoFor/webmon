@@ -10,6 +10,22 @@ import { ErrorMessage } from './enums/enums.js';
 import { encryptionService } from '~/modules/modules.js';
 import { tokenService } from '~/modules/token/token.js';
 
+const getUser = async (userId: number): Promise<AuthResponseDTO['user']> => {
+  try {
+    const user = await usersService.getById(userId);
+
+    return {
+      id: user.id,
+      email: user.email,
+    };
+  } catch (error) {
+    throw new AuthError(
+      ErrorMessage.INVALID_CREDENTIALS,
+      HTTPCode.UNAUTHORIZED,
+    );
+  }
+};
+
 const signIn = async (dto: SignInRequestDTO): Promise<AuthResponseDTO> => {
   const { email, password } = dto;
 
@@ -78,6 +94,7 @@ const signUp = async (dto: SignUpRequestDTO): Promise<AuthResponseDTO> => {
 };
 
 const service = {
+  getUser,
   signIn,
   signUp,
 };

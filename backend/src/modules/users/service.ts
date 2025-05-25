@@ -4,6 +4,16 @@ import { repository } from './repository.js';
 import { UserModel } from './types/types.js';
 import { ErrorMessage } from './enums/enums.js';
 
+const getById = async (id: UserModel['id']): Promise<UserModel> => {
+  const user = await repository.getById(id);
+
+  if (!user) {
+    throw new UserError(ErrorMessage.NOT_FOUND, HTTPCode.NOT_FOUND);
+  }
+
+  return user;
+};
+
 const getByEmail = async (email: UserModel['email']): Promise<UserModel> => {
   const user = await repository.getByEmail(email);
 
@@ -32,6 +42,7 @@ const create = async ({
 };
 
 const service = {
+  getById,
   getByEmail,
   create,
 };
