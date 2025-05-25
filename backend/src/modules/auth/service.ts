@@ -46,7 +46,7 @@ const signIn = async (dto: SignInRequestDTO): Promise<AuthResponseDTO> => {
 };
 
 const signUp = async (dto: SignUpRequestDTO): Promise<AuthResponseDTO> => {
-  const { email, password, repeatPassword } = dto;
+  const { email, password, confirmPassword } = dto;
 
   try {
     await usersService.getByEmail(email);
@@ -57,7 +57,7 @@ const signUp = async (dto: SignUpRequestDTO): Promise<AuthResponseDTO> => {
     }
   }
 
-  if (password !== repeatPassword) {
+  if (password !== confirmPassword) {
     throw new AuthError(ErrorMessage.PASSWORDS_MISMATCH, HTTPCode.UNAUTHORIZED);
   }
 

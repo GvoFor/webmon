@@ -13,12 +13,12 @@ const Footer = (): React.JSX.Element => {
         <ul className={styles['socials-list']}>
           <li className={styles['socials-item']}>
             <a href="#">
-              <Icon icon="github" width={48} height={48} />
+              <Icon name="github" width={48} />
             </a>
           </li>
           <li className={styles['socials-item']}>
             <a href="#">
-              <Icon icon="linkedin" width={48} height={48} />
+              <Icon name="linkedin" width={48} />
             </a>
           </li>
         </ul>

@@ -18,7 +18,7 @@ const Header = ({ withNav = true }: Properties): React.JSX.Element => {
         <NavigationBar>
           <NavigationLink href={AppRoutes.ROOT} text="Home" />
           <NavigationLink
-            href={AppRoutes.AUTH}
+            href={AppRoutes.SIGN_IN}
             text="Sign In"
             variant="button"
           />

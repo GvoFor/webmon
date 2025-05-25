@@ -113,4 +113,4 @@ Password length is in range \[5, 50].
 
 ### Sign Up Form
 
-All the same as for "Sign In" form, but the link in the text under form leads to "Sign In" form, and there is an extra field: _repeat password_ which has same constraints as _password_, and its content should match with _password_'s content for successful submission.
+All the same as for "Sign In" form, but the link in the text under form leads to "Sign In" form, and there is an extra field: _confirm password_ which has same constraints as _password_, and its content should match with _password_'s content for successful submission.

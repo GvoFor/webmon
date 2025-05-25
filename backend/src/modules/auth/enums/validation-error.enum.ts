@@ -13,6 +13,7 @@ const ValidationErrorMessage = {
   PASSWORD_REQUIRED: 'Password is required',
   PASSWORD_TOO_SHORT: `Password is too short. It must contain at least ${PASSWORD_MIN_LENGTH} characters`,
   PASSWORD_TOO_LONG: `Password is too long. It must contain at most ${PASSWORD_MAX_LENGTH} characters`,
+  PASSWORDS_MISMATCH: `Passwords do not match`,
 } as const;
 
 export { ValidationErrorMessage };

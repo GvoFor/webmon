@@ -1,0 +1,13 @@
+@use '/src/assets/scss/variables.scss';
+
+.icon-button {
+  background: none;
+  color: currentColor;
+  border: none;
+  cursor: pointer;
+  transition: color ease 0.25s;
+
+  &:hover {
+    color: variables.$color-primary-brand;
+  }
+}

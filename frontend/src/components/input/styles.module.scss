@@ -1,0 +1,49 @@
+@use '/src/assets/scss/variables.scss';
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-container {
+  display: flex;
+  border: 1px solid variables.$color-primary-light;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.input-label-text {
+  background-color: variables.$color-primary-light;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.input-icon-left {
+  background-color: variables.$color-primary-light;
+  color: variables.$color-primary-dark;
+}
+
+.input-field {
+  width: 100%;
+  font-family: Karla;
+  padding: 2px 4px;
+  font-size: 24px;
+  background-color: transparent;
+  color: variables.$color-primary-light;
+  border: 0;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(variables.$color-primary-light, 0.5);
+  }
+}
+
+.input-error {
+  color: variables.$color-danger;
+}

@@ -1,0 +1,20 @@
+@use '/src/assets/scss/variables.scss';
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  color: variables.$color-primary-dark;
+  background-color: variables.$color-primary-light;
+  border: none;
+  border-radius: 8px;
+  font-family: Karla;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color ease 0.25s;
+
+  &:hover {
+    background-color: variables.$color-primary-brand;
+  }
+}
