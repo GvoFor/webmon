@@ -4,6 +4,7 @@ import toCamelCase from 'camelcase-keys';
 import { config } from '~/config/config.js';
 import { DatabaseTableName } from '~/enums/enums.js';
 import { DatabaseConnectionError } from './database-connection.error.js';
+import { loggerService } from '~/modules/logger/logger.js';
 
 const knexConfig: knex.Knex.Config = {
   client: config.DB_CLIENT,
@@ -31,7 +32,7 @@ const db = knex(knexConfig);
 
 try {
   await db.raw('SELECT 1');
-  console.log('Database connection established');
+  loggerService.info('Database connection established');
 } catch (error) {
   throw new DatabaseConnectionError(
     `Could not establish database connection: ${error}`,

@@ -1,6 +1,7 @@
 import { db } from '~/database/database.js';
 import { type UserModel } from './types/types.js';
 import { DatabaseTableName } from '~/enums/database-table-name.enum.js';
+import { loggerService } from '../logger/logger.js';
 
 const TABLE_NAME = DatabaseTableName.USERS;
 
@@ -36,7 +37,7 @@ const create = async ({
 
     return user;
   } catch (error) {
-    console.log(error);
+    loggerService.error(error as string);
   }
 };
 
