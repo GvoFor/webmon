@@ -11,6 +11,7 @@ const ENC_SALT_ROUNDS = process.env['ENC_SALT_ROUNDS'];
 const JWT_EXPIRATION_TIME = process.env['JWT_EXPIRATION_TIME'];
 const JWT_ALGORITHM = process.env['JWT_ALGORITHM'];
 const JWT_SECRET = process.env['JWT_SECRET'];
+const LOG_LEVEL = process.env['LOG_LEVEL'];
 
 if (
   !APP_HOST ||
@@ -34,6 +35,7 @@ const config = {
   JWT_EXPIRATION_TIME,
   JWT_ALGORITHM,
   JWT_SECRET,
+  LOG_LEVEL,
 };
 
 export { config };
