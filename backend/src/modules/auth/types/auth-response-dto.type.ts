@@ -1,9 +1,8 @@
+import { type User } from '~/modules/users/types/types.js';
+
 type AuthResponseDTO = {
   token: string;
-  user: {
-    id: number;
-    email: string;
-  };
+  user: User;
 };
 
 export { type AuthResponseDTO };

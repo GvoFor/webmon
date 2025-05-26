@@ -1,4 +1,9 @@
-import { Footer, Header, Outlet } from '~/components/components.js';
+import {
+  Footer,
+  Header,
+  Outlet,
+  ToastContainer,
+} from '~/components/components.js';
 import styles from './styles.module.scss';
 import { useStore } from '~/store/store.js';
 import { useEffect } from '~/hooks/hooks.js';
@@ -17,6 +22,7 @@ const App = (): React.JSX.Element => {
         <Outlet />
       </main>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

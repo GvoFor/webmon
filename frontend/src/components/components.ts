@@ -8,3 +8,4 @@ export { RouterProvider } from './router-provider/router-provider.js';
 export { NavLink, Outlet } from 'react-router-dom';
 export { Input } from './input/input.js';
 export { Link } from './link/link.js';
+export { ToastContainer } from './toast-container/toast-container.js';

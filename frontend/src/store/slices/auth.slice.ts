@@ -20,41 +20,29 @@ type AuthSlice = {
 const createSlice: StateCreator<AuthSlice> = (set) => ({
   user: null,
   getUser: async () => {
-    try {
-      const user = await http.get<User>(AuthAPIEndpoint.GET_USER);
+    const user = await http.get<User>(AuthAPIEndpoint.GET_USER);
 
-      set({ user });
-    } catch (error) {
-      console.error(error);
-    }
+    set({ user });
   },
   signIn: async (payload: SignInRequestDTO) => {
-    try {
-      const { token, user } = await http.post<AuthResponseDTO>(
-        AuthAPIEndpoint.SIGN_IN,
-        payload,
-      );
+    const { token, user } = await http.post<AuthResponseDTO>(
+      AuthAPIEndpoint.SIGN_IN,
+      payload,
+    );
 
-      storage.store(StorageKey.AUTH_TOKEN, token);
+    storage.store(StorageKey.AUTH_TOKEN, token);
 
-      set({ user });
-    } catch (error) {
-      console.error(error);
-    }
+    set({ user });
   },
   signUp: async (payload: SignUpRequestDTO) => {
-    try {
-      const { token, user } = await http.post<AuthResponseDTO>(
-        AuthAPIEndpoint.SIGN_UP,
-        payload,
-      );
+    const { token, user } = await http.post<AuthResponseDTO>(
+      AuthAPIEndpoint.SIGN_UP,
+      payload,
+    );
 
-      storage.store(StorageKey.AUTH_TOKEN, token);
+    storage.store(StorageKey.AUTH_TOKEN, token);
 
-      set({ user });
-    } catch (error) {
-      console.error(error);
-    }
+    set({ user });
   },
   signOut: () => {
     storage.remove(StorageKey.AUTH_TOKEN);

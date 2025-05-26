@@ -1,8 +1,9 @@
 import { usersService } from '~/modules/users/users.js';
 import {
-  AuthResponseDTO,
-  SignInRequestDTO,
-  SignUpRequestDTO,
+  type AuthResponseDTO,
+  type AuthTokenPayload,
+  type SignInRequestDTO,
+  type SignUpRequestDTO,
 } from './types/types.js';
 import { AuthError } from './errors/errors.js';
 import { HTTPCode } from '~/enums/http-code.enum.js';
@@ -82,7 +83,9 @@ const signUp = async (dto: SignUpRequestDTO): Promise<AuthResponseDTO> => {
 
   const user = await usersService.create({ email, passwordHash, passwordSalt });
 
-  const token = await tokenService.create({ userId: user.id });
+  const token = await tokenService.create<AuthTokenPayload>({
+    userId: user.id,
+  });
 
   return {
     token,

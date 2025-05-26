@@ -1,5 +1,22 @@
 import { config } from '~/config/config.js';
 import { StorageKey, storage } from '~/modules/local-storage/local-storage.js';
+import { ValueOf } from '~/types/types.js';
+
+const HTTPCode = {
+  OK: 200,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+} as const;
+
+class HTTPError extends Error {
+  public status: ValueOf<typeof HTTPCode>;
+  constructor(message: string, status: ValueOf<typeof HTTPCode>) {
+    super(message);
+    this.status = status;
+  }
+}
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
@@ -35,8 +52,18 @@ async function request<T>(
   });
 
   if (!response.ok) {
-    const errorBody = await response.text();
-    throw new Error(`HTTP ${response.status}: ${errorBody}`);
+    try {
+      const { status, message } = await response.json();
+      throw new HTTPError(message, status);
+    } catch (error) {
+      if (error instanceof HTTPError) {
+        throw error;
+      }
+      throw new HTTPError(
+        'Internal Server Error',
+        HTTPCode.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   return response.json();

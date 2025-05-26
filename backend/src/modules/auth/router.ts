@@ -5,11 +5,10 @@ import {
   signUpValidationSchema,
 } from './validation-schemas.js';
 import { controller } from './controller.js';
-import { authorizationMiddleware } from '~/middlewares/middlewares.js';
 
 const router = Router();
 
-router.get('/', authorizationMiddleware, controller.getUser);
+router.get('/', controller.getUser);
 
 router.post(
   '/sign-up',

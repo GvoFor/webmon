@@ -2,10 +2,16 @@ import { Request, Response } from 'express';
 import { service } from './service.js';
 import { HTTPError } from '~/errors/errors.js';
 import { HTTPCode } from '~/enums/enums.js';
+import { getAuthTokenPayload } from '~/helpers/helpers.js';
 
 const getUser = async (req: Request, res: Response) => {
   try {
-    const response = await service.getUser(req.userId as number);
+    const tokenPayload = await getAuthTokenPayload(req);
+    if ('errorMessage' in tokenPayload) {
+      res.json(null);
+      return;
+    }
+    const response = await service.getUser(tokenPayload.userId);
     res.json(response);
   } catch (error) {
     if (error instanceof HTTPError) {
