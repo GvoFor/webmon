@@ -16,7 +16,7 @@ import styles from './styles.module.scss';
 import { useStore } from '~/store/store.js';
 
 const Auth = (): React.JSX.Element => {
-  const isAuthorized = useIsAuthorized();
+  const { isAuthorized } = useIsAuthorized();
   const { signIn, signUp } = useStore(({ auth }) => auth);
   const { pathname } = useLocation();
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { App, RouterProvider } from './components/components.js';
+import { App, ProtectedPage, RouterProvider } from './components/components.js';
 import { AppRoutes } from './enums/enums.js';
-import { Auth, Home } from './pages/pages.js';
+import { Auth, Dashboard, Home } from './pages/pages.js';
 
 import './assets/scss/main.scss';
 
@@ -25,6 +25,14 @@ createRoot(document.getElementById('root')!).render(
             {
               element: <Auth />,
               path: AppRoutes.SIGN_UP,
+            },
+            {
+              element: (
+                <ProtectedPage>
+                  <Dashboard />
+                </ProtectedPage>
+              ),
+              path: AppRoutes.DASHBOARD,
             },
           ],
         },

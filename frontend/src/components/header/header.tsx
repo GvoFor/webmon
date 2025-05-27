@@ -10,7 +10,7 @@ import logo from '~/assets/images/logo.svg';
 import { useIsAuthorized, useLocation } from '~/hooks/hooks.js';
 
 const Header = (): React.JSX.Element => {
-  const isAuthorized = useIsAuthorized();
+  const { isAuthorized } = useIsAuthorized();
   const { pathname } = useLocation();
 
   const withNav = !(
@@ -25,6 +25,9 @@ const Header = (): React.JSX.Element => {
       {withNav && (
         <NavigationBar>
           <NavigationLink href={AppRoutes.ROOT} text="Home" />
+          {isAuthorized && (
+            <NavigationLink href={AppRoutes.DASHBOARD} text="Dashboard" />
+          )}
           {isAuthorized ? (
             <Profile />
           ) : (

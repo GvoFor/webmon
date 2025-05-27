@@ -9,3 +9,5 @@ export { NavLink, Outlet } from 'react-router-dom';
 export { Input } from './input/input.js';
 export { Link } from './link/link.js';
 export { ToastContainer } from './toast-container/toast-container.js';
+export { ProtectedPage } from './protected-page/protected-page.js';
+export { Loader } from './loader/loader.js';

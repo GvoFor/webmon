@@ -1,6 +1,7 @@
 import {
   Footer,
   Header,
+  Loader,
   Outlet,
   ToastContainer,
 } from '~/components/components.js';
@@ -9,11 +10,19 @@ import { useStore } from '~/store/store.js';
 import { useEffect } from '~/hooks/hooks.js';
 
 const App = (): React.JSX.Element => {
-  const { getUser } = useStore(({ auth }) => auth);
+  const { getUser, isUserLoading } = useStore(({ auth }) => auth);
 
   useEffect(() => {
     getUser();
   }, [getUser]);
+
+  if (isUserLoading) {
+    return (
+      <div className={styles['loader-container']}>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className={styles['page-layout']}>

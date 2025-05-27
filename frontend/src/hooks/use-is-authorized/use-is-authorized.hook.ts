@@ -1,16 +1,24 @@
 import { useEffect, useState } from '../hooks.js';
 import { useStore } from '~/store/store.js';
 
-type ReturnType = boolean;
+type ReturnType = {
+  isAuthorized: boolean;
+  isAuthorizedLoading: boolean;
+};
 
 const useIsAuthorized = (): ReturnType => {
-  const { user } = useStore(({ auth }) => auth);
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const { user, isUserLoading } = useStore(({ auth }) => auth);
+
+  const [isAuthorized, setIsAuthorized] = useState(user !== null);
+
   useEffect(() => {
     setIsAuthorized(() => user !== null);
-  }, [user]);
+  }, [user, setIsAuthorized]);
 
-  return isAuthorized;
+  return {
+    isAuthorized,
+    isAuthorizedLoading: isUserLoading,
+  };
 };
 
 export { useIsAuthorized };
