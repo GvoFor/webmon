@@ -11,4 +11,7 @@ export {
   DEFAULT_SIGN_IN_PAYLOAD,
   DEFAULT_SIGN_UP_PAYLOAD,
 } from './consts/consts.js';
-export { APIEndpoint as AuthAPIEndpoint } from './enums/enums.js';
+export {
+  APIEndpoint as AuthAPIEndpoint,
+  SuccessMessage as AuthSuccessMessage,
+} from './enums/enums.js';
