@@ -5,9 +5,51 @@
   color: currentColor;
   border: none;
   cursor: pointer;
-  transition: color ease 0.25s;
+  transition-property: color, background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
+.variant {
+  &-primary {
+    &:hover {
+      color: variables.$color-primary-brand;
+    }
+  }
+
+  &-outlined {
+    border: 1px solid variables.$color-primary-light;
+    border-radius: 8px;
+    padding: 4px;
+  }
+}
+
+.active-primary {
+  &.active {
+    background-color: variables.$color-primary-dark;
+  }
 
   &:hover {
-    color: variables.$color-primary-brand;
+    background-color: variables.$color-transparent-dark;
+  }
+}
+
+.active-danger {
+  &.active {
+    background-color: variables.$color-primary-danger;
+  }
+
+  &:hover {
+    background-color: variables.$color-transparent-danger;
+  }
+}
+
+.active-success {
+  &.active {
+    background-color: variables.$color-primary-success;
+  }
+
+  &:hover {
+    background-color: variables.$color-transparent-success;
   }
 }

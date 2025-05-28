@@ -11,3 +11,4 @@ export { Link } from './link/link.js';
 export { ToastContainer } from './toast-container/toast-container.js';
 export { ProtectedPage } from './protected-page/protected-page.js';
 export { Loader } from './loader/loader.js';
+export { MonitorScriptAvatar } from './monitor-script-avatar/monitor-script-avatar.js';

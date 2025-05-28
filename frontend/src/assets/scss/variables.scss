@@ -2,5 +2,14 @@ $color-primary-dark: #1a1423;
 $color-primary-light: #eacdc2;
 $color-primary-brand: #cc5803;
 
-$color-danger: #b70c0c;
-$color-success: #127307;
+$color-primary-danger: #b70c0c;
+$color-primary-success: #127307;
+
+$color-transparent-dark: rgba($color-primary-dark, 0.5);
+$color-transparent-danger: rgba($color-primary-danger, 0.5);
+$color-transparent-success: rgba($color-primary-success, 0.5);
+
+$box-shadow-aura: 0 0 4px rgba($color-primary-dark, 0.25);
+
+$card-body-box-shadow: 0 -4px 4px rgba($color-primary-dark, 0.25);
+$card-body-background-color: rgba($color-primary-brand, 0.8);

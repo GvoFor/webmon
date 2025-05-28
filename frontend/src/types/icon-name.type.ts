@@ -5,6 +5,8 @@ type IconName =
   | 'key'
   | 'eye'
   | 'strikedEye'
-  | 'user';
+  | 'user'
+  | 'checkLine'
+  | 'trashCan';
 
 export { type IconName };

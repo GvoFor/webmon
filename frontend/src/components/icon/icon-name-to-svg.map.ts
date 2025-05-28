@@ -6,6 +6,8 @@ import KeyIcon from '/src/assets/images/icons/key.svg?react';
 import EyeIcon from '/src/assets/images/icons/eye.svg?react';
 import StrikedEyeIcon from '/src/assets/images/icons/striked-eye.svg?react';
 import UserIcon from '/src/assets/images/icons/user.svg?react';
+import CheckLineIcon from '/src/assets/images/icons/check-line.svg?react';
+import TrashCanIcon from '/src/assets/images/icons/trash-can.svg?react';
 
 const iconNameToSvgMap: Record<
   IconName,
@@ -18,6 +20,8 @@ const iconNameToSvgMap: Record<
   'eye': EyeIcon,
   'strikedEye': StrikedEyeIcon,
   'user': UserIcon,
+  'checkLine': CheckLineIcon,
+  'trashCan': TrashCanIcon,
 };
 
 export { iconNameToSvgMap };

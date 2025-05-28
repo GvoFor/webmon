@@ -3,9 +3,9 @@
 /* TODO: Colors don't apply. fix it */
 .toast-container {
   --toastify-color-info: variables.$color-primary-brand;
-  --toastify-color-success: variables.$color-success;
-  --toastify-color-warning: variables.$color-warning;
-  --toastify-color-error: variables.$color-danger;
+  --toastify-color-success: variables.$color-primary-success;
+  --toastify-color-warning: variables.$color-primary-warning;
+  --toastify-color-error: variables.$color-primary-danger;
   --toastify-font-family: Karla, sans-serif;
 }
 
