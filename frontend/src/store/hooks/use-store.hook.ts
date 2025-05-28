@@ -1,16 +1,16 @@
 import { create } from 'zustand';
 import {
   createAuthSlice,
-  type MonitorScriptsSlice,
+  type ScriptReportsSlice,
   type AuthSlice,
-  createMonitorScriptsSlice,
+  createScriptReportsSlice,
 } from '../slices/slices.js';
 import { wrapSlice } from '../helpers/helpers.js';
 import { errorNotifierMiddleware } from '../middlewares/error-notifier.middleware.js';
 
 type StoreState = {
   auth: AuthSlice;
-  monitorScripts: MonitorScriptsSlice;
+  scriptReports: ScriptReportsSlice;
 };
 
 const useStore = create<StoreState>((...args) => ({
@@ -18,9 +18,9 @@ const useStore = create<StoreState>((...args) => ({
     'auth',
     errorNotifierMiddleware(createAuthSlice),
   )(...args),
-  ...wrapSlice<StoreState, 'monitorScripts', MonitorScriptsSlice>(
-    'monitorScripts',
-    errorNotifierMiddleware(createMonitorScriptsSlice),
+  ...wrapSlice<StoreState, 'scriptReports', ScriptReportsSlice>(
+    'scriptReports',
+    errorNotifierMiddleware(createScriptReportsSlice),
   )(...args),
 }));
 

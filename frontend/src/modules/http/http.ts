@@ -18,16 +18,31 @@ class HTTPError extends Error {
   }
 }
 
-type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
+type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+
+type HttpParams = Record<string, string | boolean | number>;
 
 type RequestOptions = {
   method?: HttpMethod;
   headers?: HeadersInit;
   body?: object | undefined;
+  params?: HttpParams;
 };
 
 function getToken(): string | null {
   return storage.get(StorageKey.AUTH_TOKEN);
+}
+
+function replaceParams(url: string, params: HttpParams) {
+  return url.replace(/:([a-zA-Z]+)/g, (_, key) => {
+    const value = params[key];
+    if (value === undefined)
+      throw new HTTPError(
+        `Missing value for path param: ${key}`,
+        HTTPCode.BAD_REQUEST,
+      );
+    return String(value);
+  });
 }
 
 async function request<T>(
@@ -44,7 +59,7 @@ async function request<T>(
 
   const fullUrl = `${config.API_ORIGIN_URL}/${url}`;
 
-  const response = await fetch(fullUrl, {
+  const response = await fetch(replaceParams(fullUrl, options.params || {}), {
     ...options,
     method: options.method || 'GET',
     headers,
@@ -76,7 +91,9 @@ const http = {
     request<T>(url, { ...options, method: 'POST', body }),
   put: <T>(url: string, body?: object, options?: RequestOptions) =>
     request<T>(url, { ...options, method: 'PUT', body }),
-  delele: <T>(url: string, options?: RequestOptions) =>
+  patch: <T>(url: string, body?: object, options?: RequestOptions) =>
+    request<T>(url, { ...options, method: 'PATCH', body }),
+  delete: <T>(url: string, options?: RequestOptions) =>
     request<T>(url, { ...options, method: 'DELETE' }),
 };
 

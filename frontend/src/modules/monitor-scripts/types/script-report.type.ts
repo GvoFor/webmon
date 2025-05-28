@@ -8,6 +8,7 @@ type ScriptReport = {
   title: string;
   description: string;
   isMarkedAsChecked: boolean;
+  initialIsMarkedAsChecked: boolean;
   isNew: boolean;
 };
 

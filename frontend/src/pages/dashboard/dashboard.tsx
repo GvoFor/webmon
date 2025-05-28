@@ -5,26 +5,46 @@ import { useStore } from '~/store/store.js';
 import styles from './styles.module.scss';
 
 const Dashboard = (): React.JSX.Element => {
-  const { reports, getReports, isReportsLoading } = useStore(
-    ({ monitorScripts }) => monitorScripts,
-  );
+  const {
+    reports,
+    getReports,
+    isReportsLoading,
+    deleteReport,
+    toggleReportCheckMark,
+  } = useStore(({ scriptReports }) => scriptReports);
 
   useEffect(() => {
     getReports();
   }, [getReports]);
 
   const checkedCards = useMemo(
-    () => reports.filter(({ isMarkedAsChecked }) => isMarkedAsChecked),
+    () =>
+      reports.filter(
+        ({ initialIsMarkedAsChecked }) => initialIsMarkedAsChecked,
+      ),
     [reports],
   );
 
   const uncheckedCards = useMemo(
-    () => reports.filter(({ isMarkedAsChecked }) => !isMarkedAsChecked),
+    () =>
+      reports.filter(
+        ({ initialIsMarkedAsChecked }) => !initialIsMarkedAsChecked,
+      ),
     [reports],
   );
 
-  const handleMarkAsCheckedClick = useCallback((cardId: number) => {}, []);
-  const handleDeleteClick = useCallback((cardId: number) => {}, []);
+  const handleMarkAsCheckedClick = useCallback(
+    (cardId: number) => {
+      toggleReportCheckMark(cardId);
+    },
+    [toggleReportCheckMark],
+  );
+  const handleDeleteClick = useCallback(
+    (cardId: number) => {
+      deleteReport(cardId);
+    },
+    [deleteReport],
+  );
 
   return (
     <>

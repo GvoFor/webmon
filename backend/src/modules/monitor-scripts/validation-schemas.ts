@@ -14,4 +14,9 @@ const createReportValidationSchema = z.object({
   }),
 });
 
-export { createReportValidationSchema };
+const patchReportValidationSchema = z.object({
+  isMarkedAsChecked: z.boolean().optional(),
+  isNew: z.boolean().optional(),
+});
+
+export { createReportValidationSchema, patchReportValidationSchema };
