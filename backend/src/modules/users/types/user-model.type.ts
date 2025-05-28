@@ -1,10 +1,9 @@
-type UserModel = {
-  id: number;
+import { type BaseModel } from '~/types/types.js';
+
+type UserModel = BaseModel & {
   email: string;
   passwordHash: string;
   passwordSalt: string;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export { type UserModel };

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { authRouter } from '~/modules/modules.js';
+import { authRouter, monitorScriptsRouter } from '~/modules/modules.js';
 
 const router = Router();
 
@@ -8,5 +8,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/auth', authRouter);
+router.use('/monitor-scripts', monitorScriptsRouter);
 
 export { router as mainRouter };
