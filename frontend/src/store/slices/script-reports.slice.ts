@@ -14,6 +14,7 @@ type ScriptReportsSlice = {
   getReports: () => Promise<void>;
   toggleReportCheckMark: (id: number) => Promise<void>;
   deleteReport: (id: number) => Promise<void>;
+  clearReports: () => void;
 };
 
 const createSlice: StateCreator<ScriptReportsSlice> = (set, get) => ({
@@ -76,6 +77,9 @@ const createSlice: StateCreator<ScriptReportsSlice> = (set, get) => ({
     set(({ reports }) => ({
       reports: reports.filter((report) => report.id !== id),
     }));
+  },
+  clearReports: () => {
+    set({ reports: [] });
   },
 });
 
