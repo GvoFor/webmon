@@ -3,15 +3,18 @@ import { MonitorReportCard } from '../components.js';
 
 import styles from './styles.module.scss';
 import { useCallback } from '~/hooks/hooks.js';
+import { Loader } from '~/components/components.js';
 
 type Properties = {
   reportCards: MonitorScriptReport[];
+  isReportsLoading: boolean;
   onMarkAsCheckedClick: (cardId: number) => void;
   onDeleteClick: (cardId: number) => void;
 };
 
 const MonitorReportCardsList = ({
   reportCards,
+  isReportsLoading,
   onMarkAsCheckedClick,
   onDeleteClick,
 }: Properties): React.JSX.Element => {
@@ -29,6 +32,23 @@ const MonitorReportCardsList = ({
     [onDeleteClick],
   );
 
+  if (isReportsLoading) {
+    return (
+      <div className={styles['loader-container']}>
+        <Loader />
+      </div>
+    );
+  }
+
+  if (reportCards.length === 0) {
+    return (
+      <div className={styles['empty-list-placeholder-container']}>
+        <p className={styles['empty-list-placeholder-text']}>
+          No monitor reports here
+        </p>
+      </div>
+    );
+  }
   return (
     <ul className={styles['cards-list']}>
       {reportCards.map((reportCard) => (
@@ -36,7 +56,7 @@ const MonitorReportCardsList = ({
           <MonitorReportCard
             title={reportCard.title}
             description={reportCard.description}
-            date={reportCard.date}
+            createAt={reportCard.createAt}
             href={reportCard.href}
             isMarkedAsChecked={reportCard.isMarkedAsChecked}
             onMarkAsCheckedClicked={handleMarkAsCheckedClick(reportCard.id)}

@@ -1,9 +1,9 @@
-type ScriptReport = {
+type ReportResponseDTO = {
   id: number;
-  createAt: Date;
+  createdAt: string;
+  scriptName: string;
   scriptAvatarUrl?: string | undefined;
   previewImageUrl?: string | undefined;
-  scriptName: string;
   href: string;
   title: string;
   description: string;
@@ -11,4 +11,4 @@ type ScriptReport = {
   isNew: boolean;
 };
 
-export { type ScriptReport };
+export { type ReportResponseDTO };

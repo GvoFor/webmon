@@ -12,7 +12,7 @@ type Properties = {
   previewImageUrl?: string | undefined;
   title: string;
   description: string;
-  date: Date;
+  createAt: Date;
   isMarkedAsChecked: boolean;
   onMarkAsCheckedClicked: () => void;
   onDeleteClicked: () => void;
@@ -26,7 +26,7 @@ const MonitorReportCard = ({
   previewImageUrl,
   title,
   description,
-  date,
+  createAt,
   isMarkedAsChecked,
   onMarkAsCheckedClicked,
   onDeleteClicked,
@@ -61,7 +61,7 @@ const MonitorReportCard = ({
             onClick={onDeleteClicked}
           />
           <p className={styles['body-date']}>
-            {formatDate(date, 'dd.MM.yyyy')}
+            {formatDate(createAt, 'dd.MM.yyyy')}
           </p>
           <IconButton
             iconName="checkLine"

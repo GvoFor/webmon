@@ -1,4 +1,5 @@
 @use '/src/assets/scss/media.scss';
+@use '/src/assets/scss/variables.scss';
 
 .cards-list {
   display: grid;
@@ -12,4 +13,17 @@
   @include media.respond-to(medium) {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+.empty-list-placeholder-container,
+.loader-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.empty-list-placeholder-text {
+  font-family: Karla;
+  font-size: 24px;
+  color: variables.$color-primary-brand;
 }
