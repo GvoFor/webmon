@@ -58,8 +58,13 @@ const createScriptValidationSchema = z.object({
     }),
 });
 
+const patchScriptValidationSchema = z.object({
+  isActive: z.boolean().optional(),
+});
+
 export {
   createReportValidationSchema,
   patchReportValidationSchema,
   createScriptValidationSchema,
+  patchScriptValidationSchema,
 };

@@ -4,5 +4,6 @@ export { type ReportCreateRequestDTO } from './report-create-request-dto.type.js
 export { type ReportPatchBulkRequestDTO } from './report-patch-bulk-request-dto.type.js';
 export { type ReportPatchRequestDTO } from './report-patch-request-dto.type.js';
 export { type ReportResponseDTO } from './report-response-dto.type.js';
+export { type ScriptPatchRequestDTO } from './script-patch-request-dto.type.js';
 export { type ScriptResponseDTO } from './script-response-dto.type.js';
 export { type ScriptCreateRequestDTO } from './script-create-request-dto.type.js';

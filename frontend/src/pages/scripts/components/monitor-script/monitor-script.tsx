@@ -51,6 +51,7 @@ const MonitorScript = ({
           scriptName={name}
           scriptAvatarUrl={avatarUrl}
           status={isActive ? 'active' : 'inactive'}
+          color="light"
         />
         <h3 className={styles['script-name']}>{name}</h3>
         <div className={styles['collapse-button-container']}>

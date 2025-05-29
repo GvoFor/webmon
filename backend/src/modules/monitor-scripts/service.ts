@@ -17,6 +17,7 @@ import {
   type ReportPatchBulkRequestDTO,
   type ScriptResponseDTO,
   type ScriptCreateRequestDTO,
+  type ScriptPatchRequestDTO,
 } from './types/types.js';
 
 const getReportsByUserId = async (
@@ -89,6 +90,18 @@ const createScript = async (
   return scriptModelToResponseDto(script);
 };
 
+const patchScript = async (
+  requestDto: ScriptPatchRequestDTO,
+): Promise<ScriptResponseDTO> => {
+  const script = await scriptsRepository.patch(requestDto);
+
+  if (!script) {
+    throw new MonitorScriptsError('Failed to patch script');
+  }
+
+  return scriptModelToResponseDto(script);
+};
+
 const deleteScript = async (id: number): Promise<ScriptResponseDTO> => {
   const script = await scriptsRepository.deleteById(id);
 
@@ -107,6 +120,7 @@ const service = {
   deleteReport,
   getScriptsByUserId,
   createScript,
+  patchScript,
   deleteScript,
 };
 

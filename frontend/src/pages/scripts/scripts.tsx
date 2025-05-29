@@ -1,67 +1,48 @@
 import { MonitorScriptsList } from './components/components.js';
-import { useCallback, useState } from '~/hooks/hooks.js';
+import { useCallback, useEffect } from '~/hooks/hooks.js';
 
 import styles from './styles.module.scss';
-import {
-  CreateScriptRequestDTO,
-  type MonitorScript as MonitorScriptType,
-} from '~/modules/monitor-scripts/monitor-scripts.js';
+import { type CreateScriptRequestDTO } from '~/modules/monitor-scripts/monitor-scripts.js';
 import { toastNotifier } from '~/modules/toast-notifier/toast-notifier.js';
-
-const mockScripts: MonitorScriptType[] = [
-  {
-    id: 1,
-    avatarUrl:
-      'http://www.miraculousladybugseason6.org/wp-content/uploads/2025/04/Miraculous-Season-6-Episode-15-The-Ruler.webp',
-    name: 'Ladybug',
-    description: 'Monitors Miraculous Ladybug series',
-    monitorUrl: 'https://www.miraculousladybugseason6.org/',
-    monitorSelector: '.post-thumb a',
-    isActive: true,
-  },
-  {
-    id: 2,
-    avatarUrl:
-      'http://www.miraculousladybugseason6.org/wp-content/uploads/2025/04/Miraculous-Season-6-Episode-15-The-Ruler.webp',
-    name: 'Ladybug',
-    description: 'Monitors Miraculous Ladybug series',
-    monitorUrl: 'https://www.miraculousladybugseason6.org/',
-    monitorSelector: '.post-thumb a',
-    isActive: true,
-  },
-];
+import { useStore } from '~/store/store.js';
 
 const Scripts = (): React.JSX.Element => {
-  // const {} = useStore(({}) => ({}));
+  const {
+    scripts,
+    isScriptsLoading,
+    getScripts,
+    createScript,
+    deleteScript,
+    toggleScriptStatus,
+  } = useStore(({ scripts }) => scripts);
 
-  // useEffect(() => {}, []);
-
-  const [scripts, setScripts] = useState(mockScripts);
+  useEffect(() => {
+    getScripts();
+  }, [getScripts]);
 
   const handleEditClick = useCallback((_id: number) => {
     toastNotifier.showInfo('This feature is not implemented yet');
   }, []);
 
-  const handleDeleteClick = useCallback((id: number) => {
-    console.log('delete', id);
-  }, []);
+  const handleDeleteClick = useCallback(
+    (id: number) => {
+      deleteScript(id);
+    },
+    [deleteScript],
+  );
 
   const handleStatusToggle = useCallback(
     (id: number) => {
-      setScripts((scripts) =>
-        scripts.map((script) =>
-          script.id === id ? { ...script, isActive: !script.isActive } : script,
-        ),
-      );
+      toggleScriptStatus(id);
     },
-    [setScripts],
+    [toggleScriptStatus],
   );
 
   const handleCreateScriptSubmit = useCallback(
-    (payload: CreateScriptRequestDTO) => {
-      console.log('CREATE', payload);
+    async (payload: CreateScriptRequestDTO) => {
+      createScript(payload);
     },
-    [],
+    [createScript],
   );
 
   return (
@@ -69,7 +50,7 @@ const Scripts = (): React.JSX.Element => {
       <section className={styles['section']}>
         <MonitorScriptsList
           scripts={scripts}
-          isScriptsLoading={false}
+          isScriptsLoading={isScriptsLoading}
           onEditClick={handleEditClick}
           onDeleteClick={handleDeleteClick}
           onStatusToggle={handleStatusToggle}

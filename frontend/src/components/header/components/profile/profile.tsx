@@ -8,14 +8,16 @@ import { AppRoutes } from '~/enums/app-routes.enum.js';
 const Profile = (): React.JSX.Element => {
   const { signOut } = useStore(({ auth }) => auth);
   const { clearReports } = useStore(({ scriptReports }) => scriptReports);
+  const { clearScripts } = useStore(({ scripts }) => scripts);
   const navigate = useNavigate();
 
   const handleOnClick = useCallback(() => {
     /* TODO: add popup with sign out button */
     signOut();
     clearReports();
+    clearScripts();
     navigate(AppRoutes.SIGN_IN);
-  }, [signOut, clearReports, navigate]);
+  }, [signOut, clearReports, clearScripts, navigate]);
 
   return (
     <button className={styles['profile-wrapper']} onClick={handleOnClick}>

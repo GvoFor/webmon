@@ -1,6 +1,7 @@
 import { db } from '~/database/database.js';
 import { DatabaseTableName } from '~/enums/database-table-name.enum.js';
 import {
+  type ScriptPatchRequestDTO,
   type ScriptCreateRequestDTO,
   type ScriptModel,
 } from '../types/types.js';
@@ -37,6 +38,18 @@ const create = async ({
   return script;
 };
 
+const patch = async ({
+  id,
+  isActive,
+}: ScriptPatchRequestDTO): Promise<ScriptModel | undefined> => {
+  const [report] = await db<ScriptModel>(TABLE_NAME)
+    .update({ isActive })
+    .where('id', id)
+    .returning('*');
+
+  return report;
+};
+
 const deleteById = async (id: number): Promise<ScriptModel | undefined> => {
   const [script] = await db<ScriptModel>(TABLE_NAME)
     .delete()
@@ -49,6 +62,7 @@ const deleteById = async (id: number): Promise<ScriptModel | undefined> => {
 const repository = {
   getAllByUserId,
   create,
+  patch,
   deleteById,
 };
 

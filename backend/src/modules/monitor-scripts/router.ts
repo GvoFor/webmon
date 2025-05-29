@@ -8,6 +8,7 @@ import {
   createReportValidationSchema,
   patchReportValidationSchema,
   createScriptValidationSchema,
+  patchScriptValidationSchema,
 } from './validation-schemas.js';
 
 const router = Router();
@@ -20,6 +21,12 @@ router.post(
   '/',
   validateData(createScriptValidationSchema),
   controller.createScript,
+);
+
+router.patch(
+  '/:id',
+  validateData(patchScriptValidationSchema),
+  controller.patchScript,
 );
 
 router.delete('/:id', controller.deleteScript);

@@ -69,6 +69,19 @@ const createScript = async (req: Request, res: Response) => {
   res.json(response);
 };
 
+const patchScript = async (req: Request, res: Response) => {
+  const id = Number(req.params['id']);
+  if (isNaN(id)) {
+    throw new MonitorScriptsError('Id was not passed', HTTPCode.BAD_REQUEST);
+  }
+
+  const response = await service.patchScript({
+    ...req.body,
+    id,
+  });
+  res.json(response);
+};
+
 const deleteScript = async (req: Request, res: Response) => {
   const id = Number(req.params['id']);
   if (isNaN(id)) {
@@ -87,6 +100,7 @@ const controller = {
   deleteReport,
   getScripts,
   createScript,
+  patchScript,
   deleteScript,
 };
 
