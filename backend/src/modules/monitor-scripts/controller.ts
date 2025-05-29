@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
 import { service } from './service.js';
-import { MonitorScriptReportsError } from './errors/reports.error.js';
+import {
+  MonitorScriptReportsError,
+  MonitorScriptsError,
+} from './errors/errors.js';
 import { HTTPCode } from '~/enums/enums.js';
 
 const getReports = async (req: Request, res: Response) => {
@@ -53,12 +56,38 @@ const deleteReport = async (req: Request, res: Response) => {
   res.json(response);
 };
 
+const getScripts = async (req: Request, res: Response) => {
+  const response = await service.getScriptsByUserId(req.userId as number);
+  res.json(response);
+};
+
+const createScript = async (req: Request, res: Response) => {
+  const response = await service.createScript({
+    ...req.body,
+    userId: req.userId as number,
+  });
+  res.json(response);
+};
+
+const deleteScript = async (req: Request, res: Response) => {
+  const id = Number(req.params['id']);
+  if (isNaN(id)) {
+    throw new MonitorScriptsError('Id was not passed', HTTPCode.BAD_REQUEST);
+  }
+
+  const response = await service.deleteScript(id);
+  res.json(response);
+};
+
 const controller = {
   getReports,
   createReport,
   patchReport,
   patchReportBulk,
   deleteReport,
+  getScripts,
+  createScript,
+  deleteScript,
 };
 
 export { controller };

@@ -7,11 +7,22 @@ import { controller } from './controller.js';
 import {
   createReportValidationSchema,
   patchReportValidationSchema,
+  createScriptValidationSchema,
 } from './validation-schemas.js';
 
 const router = Router();
 
 router.use(authorizationMiddleware);
+
+router.get('/', controller.getScripts);
+
+router.post(
+  '/',
+  validateData(createScriptValidationSchema),
+  controller.createScript,
+);
+
+router.delete('/:id', controller.deleteScript);
 
 router.get('/reports', controller.getReports);
 
