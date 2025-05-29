@@ -7,6 +7,11 @@ type IconName =
   | 'strikedEye'
   | 'user'
   | 'checkLine'
-  | 'trashCan';
+  | 'trashCan'
+  | 'arrowDown'
+  | 'edit'
+  | 'plus'
+  | 'cross'
+  | 'power';
 
 export { type IconName };

@@ -8,6 +8,11 @@ import StrikedEyeIcon from '/src/assets/images/icons/striked-eye.svg?react';
 import UserIcon from '/src/assets/images/icons/user.svg?react';
 import CheckLineIcon from '/src/assets/images/icons/check-line.svg?react';
 import TrashCanIcon from '/src/assets/images/icons/trash-can.svg?react';
+import ArrowDownIcon from '/src/assets/images/icons/arrow-down.svg?react';
+import EditIcon from '/src/assets/images/icons/edit.svg?react';
+import PlusIcon from '/src/assets/images/icons/plus.svg?react';
+import CrossIcon from '/src/assets/images/icons/cross.svg?react';
+import PowerIcon from '/src/assets/images/icons/power.svg?react';
 
 const iconNameToSvgMap: Record<
   IconName,
@@ -22,6 +27,11 @@ const iconNameToSvgMap: Record<
   'user': UserIcon,
   'checkLine': CheckLineIcon,
   'trashCan': TrashCanIcon,
+  'arrowDown': ArrowDownIcon,
+  'edit': EditIcon,
+  'plus': PlusIcon,
+  'cross': CrossIcon,
+  'power': PowerIcon,
 };
 
 export { iconNameToSvgMap };

@@ -1,0 +1,39 @@
+@use '/src/assets/scss/variables.scss';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 300px;
+
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Kadwa;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.2;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 4px;
+    background-color: variables.$color-primary-light;
+    border-radius: 2px;
+  }
+
+  &::before {
+    width: 20%;
+  }
+
+  &::after {
+    flex: 1;
+  }
+}

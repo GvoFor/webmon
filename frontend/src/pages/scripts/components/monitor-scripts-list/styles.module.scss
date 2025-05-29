@@ -1,0 +1,18 @@
+@use '/src/assets/scss/media.scss';
+@use '/src/assets/scss/variables.scss';
+
+.scripts-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+
+  @include media.respond-to(medium) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

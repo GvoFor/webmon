@@ -22,23 +22,24 @@ const Header = (): React.JSX.Element => {
       <NavLink to={AppRoutes.ROOT}>
         <img className={styles['logo-image']} src={logo} alt="Webmon logo" />
       </NavLink>
-      {withNav && (
-        <NavigationBar>
-          <NavigationLink href={AppRoutes.ROOT} text="Home" />
-          {isAuthorized && (
+      {withNav &&
+        (isAuthorized ? (
+          <NavigationBar>
+            <NavigationLink href={AppRoutes.ROOT} text="Home" />
             <NavigationLink href={AppRoutes.DASHBOARD} text="Dashboard" />
-          )}
-          {isAuthorized ? (
+            <NavigationLink href={AppRoutes.SCRIPTS} text="Scripts" />
             <Profile />
-          ) : (
+          </NavigationBar>
+        ) : (
+          <NavigationBar>
+            <NavigationLink href={AppRoutes.ROOT} text="Home" />
             <NavigationLink
               href={AppRoutes.SIGN_IN}
               text="Sign In"
               variant="button"
             />
-          )}
-        </NavigationBar>
-      )}
+          </NavigationBar>
+        ))}
     </header>
   );
 };

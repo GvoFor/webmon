@@ -1,0 +1,27 @@
+@use '/src/assets/scss/variables.scss';
+
+.toggle {
+  &-container {
+    display: flex;
+    min-width: 56px;
+    background-color: variables.$color-secondary-brand;
+    border: 2px solid variables.$color-secondary-brand;
+    border-radius: 16px;
+    cursor: pointer;
+
+    &.active {
+      background-color: variables.$color-secondary-light;
+      justify-content: end;
+      .toggle-button {
+        color: variables.$color-primary-brand;
+      }
+    }
+  }
+
+  &-button {
+    background-color: variables.$color-primary-light;
+    color: variables.$color-secondary-brand;
+    width: min-content;
+    border-radius: 50%;
+  }
+}

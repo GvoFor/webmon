@@ -8,13 +8,32 @@
 
 .input-container {
   display: flex;
-  border: 1px solid variables.$color-primary-light;
   border-radius: 8px;
   overflow: hidden;
+
+  &.with-label {
+    font-family: Monda;
+  }
+}
+
+.variant-solid {
+  background-color: variables.$color-secondary-brand;
+}
+
+.variant-outlined {
+  border: 1px solid variables.$color-primary-light;
 }
 
 .input-label-text {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 2px 4px;
   background-color: variables.$color-primary-light;
+  color: variables.$color-primary-brand;
+  font-family: Karla;
+  font-size: 24px;
+  text-align: end;
 }
 
 .input-icon {
@@ -31,16 +50,38 @@
 
 .input-field {
   width: 100%;
-  font-family: Karla;
+  font-family: inherit;
+  font-size: inherit;
   padding: 2px 4px;
-  font-size: 24px;
   background-color: transparent;
   color: variables.$color-primary-light;
   border: 0;
   outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &::placeholder {
-    color: rgba(variables.$color-primary-light, 0.5);
+    color: variables.$color-transparent-light;
+  }
+
+  &:focus {
+    overflow: visible;
+  }
+}
+
+.input-text-area {
+  width: 100%;
+  font-family: inherit;
+  font-size: 24px;
+  padding: 4px;
+  background-color: transparent;
+  color: variables.$color-primary-light;
+  border: 0;
+  outline: none;
+  resize: none;
+
+  &::placeholder {
+    color: variables.$color-transparent-light;
   }
 }
 

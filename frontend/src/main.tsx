@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App, ProtectedPage, RouterProvider } from './components/components.js';
 import { AppRoutes } from './enums/enums.js';
-import { Auth, Dashboard, Home } from './pages/pages.js';
+import { Auth, Dashboard, Home, Scripts } from './pages/pages.js';
 
 import './assets/scss/main.scss';
 
@@ -33,6 +33,14 @@ createRoot(document.getElementById('root')!).render(
                 </ProtectedPage>
               ),
               path: AppRoutes.DASHBOARD,
+            },
+            {
+              element: (
+                <ProtectedPage>
+                  <Scripts />
+                </ProtectedPage>
+              ),
+              path: AppRoutes.SCRIPTS,
             },
           ],
         },

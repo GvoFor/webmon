@@ -1,0 +1,37 @@
+@use '/src/assets/scss/variables.scss';
+
+.output-container {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.output-label {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 2px 4px;
+  background-color: variables.$color-primary-light;
+  color: variables.$color-primary-brand;
+  font-size: 24px;
+  text-align: end;
+}
+
+.output-value {
+  display: flex;
+  align-items: center;
+  font-family: Monda;
+  width: 100%;
+  padding: 2px 4px;
+  font-size: 18px;
+  background-color: variables.$color-secondary-brand;
+  color: variables.$color-primary-light;
+  border: 0;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:focus {
+    overflow: unset;
+  }
+}

@@ -59,6 +59,7 @@ const SignInForm = ({ onSubmit }: Properties): React.JSX.Element => {
           leftIcon={<Icon name="email" width={32} />}
           type="email"
           isLabelHidden={true}
+          variant="outlined"
         />
         <Input
           autoComplete="one-time-code"
@@ -78,6 +79,7 @@ const SignInForm = ({ onSubmit }: Properties): React.JSX.Element => {
           }
           type={isPasswordVisible ? 'text' : 'password'}
           isLabelHidden={true}
+          variant="outlined"
         />
 
         <Button label="Sign In" type="submit" />
