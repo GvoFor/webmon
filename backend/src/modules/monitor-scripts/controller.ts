@@ -70,6 +70,7 @@ const createScript = async (req: Request, res: Response) => {
 };
 
 const patchScript = async (req: Request, res: Response) => {
+  console.log('PATCH SCRIPT');
   const id = Number(req.params['id']);
   if (isNaN(id)) {
     throw new MonitorScriptsError('Id was not passed', HTTPCode.BAD_REQUEST);
