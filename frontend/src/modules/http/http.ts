@@ -97,4 +97,4 @@ const http = {
     request<T>(url, { ...options, method: 'DELETE' }),
 };
 
-export { http };
+export { http, HTTPCode, HTTPError };
