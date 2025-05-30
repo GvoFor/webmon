@@ -12,6 +12,8 @@ const JWT_EXPIRATION_TIME = process.env['JWT_EXPIRATION_TIME'];
 const JWT_ALGORITHM = process.env['JWT_ALGORITHM'];
 const JWT_SECRET = process.env['JWT_SECRET'];
 const LOG_LEVEL = process.env['LOG_LEVEL'];
+const MONITOR_SCHEDULE = process.env['MONITOR_SCHEDULE'];
+const MONITOR_ON_STARTUP = process.env['MONITOR_ON_STARTUP'];
 
 if (
   !APP_HOST ||
@@ -21,7 +23,8 @@ if (
   !ENC_SALT_ROUNDS ||
   !JWT_EXPIRATION_TIME ||
   !JWT_ALGORITHM ||
-  !JWT_SECRET
+  !JWT_SECRET ||
+  !MONITOR_SCHEDULE
 ) {
   throw new DotEnvError('Missing some environment variable');
 }
@@ -36,6 +39,8 @@ const config = {
   JWT_ALGORITHM,
   JWT_SECRET,
   LOG_LEVEL,
+  MONITOR_SCHEDULE,
+  MONITOR_ON_STARTUP: MONITOR_ON_STARTUP === 'true',
 };
 
 export { config };

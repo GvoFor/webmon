@@ -8,6 +8,12 @@ import {
 
 const TABLE_NAME = DatabaseTableName.MONITOR_SCRIPTS;
 
+const getAll = async (): Promise<ScriptModel[]> => {
+  const scripts = await db<ScriptModel>(TABLE_NAME);
+
+  return scripts;
+};
+
 const getAllByUserId = async (userId: number): Promise<ScriptModel[]> => {
   const script = await db<ScriptModel>(TABLE_NAME)
     .where('userId', userId)
@@ -60,6 +66,7 @@ const deleteById = async (id: number): Promise<ScriptModel | undefined> => {
 };
 
 const repository = {
+  getAll,
   getAllByUserId,
   create,
   patch,

@@ -70,6 +70,12 @@ const deleteReport = async (id: number): Promise<ReportResponseDTO> => {
   return reportModelToResponseDto(report);
 };
 
+const getAllScripts = async (): Promise<ScriptResponseDTO[]> => {
+  const scripts = await scriptsRepository.getAll();
+
+  return scripts;
+};
+
 const getScriptsByUserId = async (
   userId: number,
 ): Promise<ScriptResponseDTO[]> => {
@@ -118,6 +124,7 @@ const service = {
   patchReport,
   patchReportBulk,
   deleteReport,
+  getAllScripts,
   getScriptsByUserId,
   createScript,
   patchScript,
