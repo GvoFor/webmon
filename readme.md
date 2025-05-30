@@ -18,14 +18,19 @@ Details are in the [specification](./docs/specification.md).
 ### Features
 
 - Monitor scripts
-- Roles
+- Roles (not implemented yet)
 - ~~Incognito mode~~
 
 ### Technologies
 
-- Typescript
-- React (~~+ Redux Toolkit~~)
-- Node.js
-- SCSS
-- MongoDB
-- Express.js
+- Frontend
+  - Vite
+  - React (+ Zustand)
+  - SCSS modules
+- Backend
+  - Node.js
+  - Express.js
+  - Knex.js (PostgreSQL)
+- Both
+  - Typescript
+  - Zod

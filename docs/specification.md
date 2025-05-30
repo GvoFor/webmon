@@ -60,7 +60,7 @@ Admin has all the capabilities that user has as well as some extra one: on the "
 This is a thing that describes what website (HTML-page\*) to monitor, and which part of it to track for changes. Script consists of:
 
 - Name (length is in range 3..=20)
-- Description (optional, max length is 50 characters)
+- Description (optional, max length is 100 characters)
 - Avatar with active status indicator
 - URL (valid HTML page)
 - CSS-selector
