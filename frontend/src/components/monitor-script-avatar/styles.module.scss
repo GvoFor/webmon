@@ -1,0 +1,65 @@
+@use '/src/assets/scss/variables.scss';
+
+.avatar {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 48px;
+    aspect-ratio: 1;
+    box-shadow: variables.$box-shadow-aura;
+    border-radius: 50%;
+    font-family: Kadwa;
+    font-size: 32px;
+  }
+
+  &-image {
+    color: variables.$color-primary-dark;
+    font-size: 12px;
+    font-family: Kadwa;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &-status-indicator {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      width: 16px;
+      top: 0;
+      right: 0;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      box-shadow: variables.$box-shadow-aura;
+    }
+
+    &-none::after {
+      display: none;
+    }
+
+    &-active::after {
+      background-color: variables.$color-primary-success;
+    }
+
+    &-inactive::after {
+      background-color: variables.$color-primary-danger;
+    }
+  }
+
+  &-color {
+    &-brand {
+      background-color: variables.$color-primary-brand;
+      color: variables.$color-primary-light;
+    }
+
+    &-light {
+      background-color: variables.$color-primary-light;
+      color: variables.$color-primary-brand;
+    }
+  }
+}

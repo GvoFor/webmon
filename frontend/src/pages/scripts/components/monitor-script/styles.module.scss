@@ -1,0 +1,68 @@
+@use '/src/assets/scss/variables.scss';
+
+.script {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: variables.$color-primary-brand;
+    color: variables.$color-primary-light;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  &-header {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-buttons-container {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &-name {
+    font-family: Kadwa;
+    font-weight: 400;
+    font-size: 32px;
+    flex: 1;
+  }
+
+  &-description {
+    font-size: 24px;
+  }
+}
+
+.collapse-button-container {
+  max-height: 32px;
+  transition: rotate ease 0.25s;
+}
+
+.script-collapsed {
+  .collapse-button-container {
+    transform-origin: center;
+    rotate: 180deg;
+  }
+
+  .script {
+    &-body,
+    &-footer {
+      display: none;
+    }
+  }
+}

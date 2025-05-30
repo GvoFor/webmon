@@ -60,7 +60,7 @@ Admin has all the capabilities that user has as well as some extra one: on the "
 This is a thing that describes what website (HTML-page\*) to monitor, and which part of it to track for changes. Script consists of:
 
 - Name (length is in range 3..=20)
-- Description (optional, max length is 50 characters)
+- Description (optional, max length is 100 characters)
 - Avatar with active status indicator
 - URL (valid HTML page)
 - CSS-selector
@@ -113,4 +113,4 @@ Password length is in range \[5, 50].
 
 ### Sign Up Form
 
-All the same as for "Sign In" form, but the link in the text under form leads to "Sign In" form, and there is an extra field: _repeat password_ which has same constraints as _password_, and its content should match with _password_'s content for successful submission.
+All the same as for "Sign In" form, but the link in the text under form leads to "Sign In" form, and there is an extra field: _confirm password_ which has same constraints as _password_, and its content should match with _password_'s content for successful submission.

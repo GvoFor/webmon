@@ -1,0 +1,20 @@
+.loader-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1240px;
+  min-height: 100vh;
+  margin: auto;
+}
+
+.main-wrapper {
+  flex: 1;
+}

@@ -1,0 +1,6 @@
+@use '/src/assets/scss/variables.scss';
+
+.link {
+  color: variables.$color-primary-brand;
+  text-decoration: underline;
+}

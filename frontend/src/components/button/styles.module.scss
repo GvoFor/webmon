@@ -1,0 +1,38 @@
+@use '/src/assets/scss/variables.scss';
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  color: variables.$color-primary-dark;
+  border: none;
+  border-radius: 8px;
+  font-family: Karla;
+  font-size: 24px;
+  cursor: pointer;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+  transition-property: background-color, color;
+}
+
+.variant {
+  &-solid {
+    background-color: variables.$color-primary-light;
+
+    &:hover {
+      background-color: variables.$color-primary-brand;
+    }
+  }
+
+  &-outlined {
+    border: 1px solid variables.$color-primary-light;
+    background-color: transparent;
+    color: variables.$color-primary-light;
+
+    &:hover {
+      background-color: variables.$color-primary-light;
+      color: variables.$color-primary-brand;
+    }
+  }
+}

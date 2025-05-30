@@ -1,0 +1,22 @@
+@use '/src/assets/scss/variables.scss';
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: transparent;
+  color: variables.$color-primary-light;
+  border: 2px solid variables.$color-primary-light;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition-property: color, background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+
+  &:hover {
+    color: variables.$color-primary-dark;
+    background-color: variables.$color-primary-light;
+  }
+}
