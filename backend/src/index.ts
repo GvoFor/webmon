@@ -5,6 +5,7 @@ import { config } from './config/config.js';
 import {
   errorHandlerMiddleware,
   httpLoggerMiddleware,
+  removeTrailingSlash,
 } from './middlewares/middlewares.js';
 import { loggerService } from './modules/logger/logger.js';
 import { startMonitoring } from './modules/monitor-scripts-executor/monitor-scripts-executor.js';
@@ -17,6 +18,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({ origin: '*' }));
+app.use(removeTrailingSlash);
 
 const staticPath = path.join(
   path.dirname(fileURLToPath(import.meta.url)),
