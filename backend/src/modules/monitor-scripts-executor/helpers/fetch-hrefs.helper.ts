@@ -22,7 +22,7 @@ const fetchHrefs = async (url: string, selector: string): Promise<string[]> => {
     if (href) {
       const absoluteHref = href.startsWith(url)
         ? href
-        : new URL(url, href).toString();
+        : new URL(href, url).toString();
       hrefs.push(absoluteHref);
     }
   });
